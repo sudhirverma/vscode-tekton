@@ -760,6 +760,9 @@
     "snippets-build": "node ./out/build/build-snippets.js"
   },
   "devDependencies": {
+    "@material-ui/core": "^4.9.13",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.52",
     "@types/byline": "^4.2.31",
     "@types/chai": "^4.1.7",
     "@types/collections": "^5.0.0",
@@ -792,7 +795,7 @@
     "glob": "^7.1.3",
     "istanbul": "^0.4.5",
     "mocha": "^6.2.2",
-    "mocha-jenkins-reporter": "^0.4.1",
+    "mocha-jenkins-reporter": "^0.4.3",
     "proxyquire": "^2.1.0",
     "remap-istanbul": "^0.13.0",
     "rimraf": "^3.0.2",
@@ -805,12 +808,14 @@
     "vscode-test": "^1.3.0",
     "walker": "^1.0.7",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@kubernetes/client-node": "^0.10.2",
     "binary-search": "^1.3.5",
     "byline": "^5.0.0",
+    "clsx": "^1.1.0",
     "debounce": "^1.2.0",
     "event-stream": "3.3.4",
     "fs-extra": "^7.0.1",
@@ -818,6 +823,7 @@
     "git-fetch-pack": "^0.1.1",
     "git-transport-protocol": "^0.1.0",
     "hasha": "5.0.0",
+    "html-webpack-plugin": "^4.3.0",
     "humanize-duration": "^3.21.0",
     "jstream": "^1.1.1",
     "lodash": "^4.17.15",
@@ -825,6 +831,8 @@
     "node-yaml-parser": "0.0.9",
     "open": "^6.4.0",
     "pluralize": "^4.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "request": "^2.88.0",
     "request-progress": "^3.0.0",
     "semver": "^6.3.0",
