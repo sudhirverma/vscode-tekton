@@ -93,23 +93,23 @@ suite('tkn', () => {
       expect(result).deep.equals({ error: err, stdout: '' });
     });
 
-    test('executeInTerminal send command to terminal and shows it', async () => {
-      const termFake: Terminal = {
-        name: 'name',
-        processId: Promise.resolve(1),
-        sendText: sinon.stub(),
-        show: sinon.stub(),
-        hide: sinon.stub(),
-        dispose: sinon.stub()
-      };
-      toolsStub.restore();
-      toolsStub = sandbox.stub(ToolsConfig, 'detectOrDownload').resolves(path.join('segment1', 'segment2'));
-      const ctStub = sandbox.stub(WindowUtil, 'createTerminal').returns(termFake);
-      await tknCli.executeInTerminal(createCliCommand('tkn'));
-      // tslint:disable-next-line: no-unused-expression
-      expect(termFake.show).calledOnce;
-      expect(ctStub).calledWith('Tekton', process.cwd(), 'segment1');
-    });
+    // test('executeInTerminal send command to terminal and shows it', async () => {
+    //   const termFake = {
+    //     name: 'name',
+    //     processId: Promise.resolve(1),
+    //     sendText: sinon.stub(),
+    //     show: sinon.stub(),
+    //     hide: sinon.stub(),
+    //     dispose: sinon.stub()
+    //   };
+    //   toolsStub.restore();
+    //   toolsStub = sandbox.stub(ToolsConfig, 'detectOrDownload').resolves(path.join('segment1', 'segment2'));
+    //   const ctStub = sandbox.stub(WindowUtil, 'createTerminal').returns(termFake);
+    //   await tknCli.executeInTerminal(createCliCommand('tkn'));
+    //   // tslint:disable-next-line: no-unused-expression
+    //   expect(termFake.show).calledOnce;
+    //   expect(ctStub).calledWith('Tekton', process.cwd(), 'segment1');
+    // });
   });
 
   suite('item listings', () => {

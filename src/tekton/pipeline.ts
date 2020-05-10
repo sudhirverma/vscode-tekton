@@ -7,43 +7,46 @@ import { TektonItem, Trigger } from './tektonitem';
 import { TektonNode, Command } from '../tkn';
 import { Progress } from '../util/progress';
 import { window } from 'vscode';
-import * as cliInstance from '../cli';
+// import * as cliInstance from '../cli';
 import { cli } from '../cli';
-import { TknPipelineTrigger } from '../tekton';
+// import { TknPipelineTrigger } from '../tekton';
+import ClusterViewLoader from '../view/cluster/clusterViewLoader';
 
 export class Pipeline extends TektonItem {
 
   static async start(pipeline: TektonNode): Promise<string> {
-    if (pipeline) {
-      const result: cliInstance.CliExitData = await Pipeline.tkn.execute(Command.listPipelines(), process.cwd(), false);
-      let data: TknPipelineTrigger[] = [];
-      if (result.error) {
-        console.log(result + ' Std.err when processing pipelines');
-      }
-      try {
-        data = JSON.parse(result.stdout).items;
-      } catch (ignore) {
-        //show no pipelines if output is not correct json
-      }
+    ClusterViewLoader.loadView('Add OpenShift Cluster');
+    return;
+    // if (pipeline) {
+    //   const result: cliInstance.CliExitData = await Pipeline.tkn.execute(Command.listPipelines(), process.cwd(), false);
+    //   let data: TknPipelineTrigger[] = [];
+    //   if (result.error) {
+    //     console.log(result + ' Std.err when processing pipelines');
+    //   }
+    //   try {
+    //     data = JSON.parse(result.stdout).items;
+    //   } catch (ignore) {
+    //     //show no pipelines if output is not correct json
+    //   }
 
-      const pipelineTrigger = data.map<Trigger>(value => ({
-        name: value.metadata.name,
-        resources: value.spec.resources,
-        params: value.spec.params ? value.spec.params : undefined,
-        serviceAcct: value.spec.serviceAccount ? value.spec.serviceAccount : undefined
-      })).filter(function (obj) {
-        return obj.name === pipeline.getName();
-      });
-      const inputStartPipeline = await Pipeline.startObject(pipelineTrigger, 'Pipeline');
+    //   const pipelineTrigger = data.map<Trigger>(value => ({
+    //     name: value.metadata.name,
+    //     resources: value.spec.resources,
+    //     params: value.spec.params ? value.spec.params : undefined,
+    //     serviceAcct: value.spec.serviceAccount ? value.spec.serviceAccount : undefined
+    //   })).filter(function (obj) {
+    //     return obj.name === pipeline.getName();
+    //   });
+    //   const inputStartPipeline = await Pipeline.startObject(pipelineTrigger, 'Pipeline');
 
-      return Progress.execFunctionWithProgress(`Starting Pipeline '${inputStartPipeline.name}'.`, () =>
-        Pipeline.tkn.startPipeline(inputStartPipeline)
-          .then(() => Pipeline.explorer.refresh())
-          .then(() => `Pipeline '${inputStartPipeline.name}' successfully started`)
-          .catch((error) => Promise.reject(`Failed to start Pipeline with error '${error}'`))
-      );
-    }
-    return null;
+    //   return Progress.execFunctionWithProgress(`Starting Pipeline '${inputStartPipeline.name}'.`, () =>
+    //     Pipeline.tkn.startPipeline(inputStartPipeline)
+    //       .then(() => Pipeline.explorer.refresh())
+    //       .then(() => `Pipeline '${inputStartPipeline.name}' successfully started`)
+    //       .catch((error) => Promise.reject(`Failed to start Pipeline with error '${error}'`))
+    //   );
+    // }
+    // return null;
   }
 
   static async restart(pipeline: TektonNode): Promise<string> {
