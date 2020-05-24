@@ -599,6 +599,7 @@ export class PipelineRun extends TektonNodeImpl {
   private started: string;
   private finished: string;
   private generateName: string;
+  private reason: string;
   constructor(parent: TektonNode,
     name: string,
     tkn: Tkn,
@@ -607,6 +608,7 @@ export class PipelineRun extends TektonNodeImpl {
     this.started = item.metadata.creationTimestamp;
     this.generateName = item.metadata.generateName;
     this.finished = item.status?.completionTime;
+    this.reason = item.status?.conditions[0] ? `(${item.status?.conditions[0].reason})` : '';
   }
 
   get label(): string {
@@ -616,9 +618,9 @@ export class PipelineRun extends TektonNodeImpl {
   get description(): string {
     let r = '';
     if (this.finished) {
-      r = 'started ' + humanizer(Date.now() - Date.parse(this.started)) + ' ago, finished in ' + humanizer(Date.parse(this.finished) - Date.parse(this.started));
+      r = `${this.reason} started ${humanizer(Date.now() - Date.parse(this.started))} ago, finished in ${humanizer(Date.parse(this.finished) - Date.parse(this.started))}`;
     } else {
-      r = 'running for ' + humanizer(Date.now() - Date.parse(this.started));
+      r = `${this.reason} running for ${humanizer(Date.now() - Date.parse(this.started))}`;
     }
     return r;
   }
