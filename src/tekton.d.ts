@@ -70,7 +70,7 @@ export interface TknResource {
 }
 
 export interface TknSpec {
-  type: string;
+  type?: string;
   resources?: TknResource[];
   params?: TknParams[];
   serviceAccount?: string;
@@ -163,6 +163,7 @@ export interface TknWorkspaces {
 
 export interface TknPipelineTrigger {
   apiVersion?: string;
+  kind?: string;
   metadata: TknMetadata;
   spec: TknSpec;
 }

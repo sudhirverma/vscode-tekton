@@ -24,7 +24,7 @@ export class Pipeline extends TektonItem {
       pipeline = await window.showQuickPick(await Pipeline.getPipelineNames(), { placeHolder: 'Select Pipeline to start', ignoreFocusOut: true });
     }
     if (!pipeline) return null;
-    Pipeline.startWizard(pipeline, commandId);
+    await Pipeline.startWizard(pipeline, commandId);
   }
 
   static async restart(pipeline: TektonNode, commandId?: string): Promise<string> {
@@ -73,9 +73,9 @@ export class Pipeline extends TektonItem {
 
   static async list(pipeline: TektonNode): Promise<void> {
     if (!pipeline) {
-      pipeline = await Pipeline.getPipelineNode();
+      Pipeline.tkn.executeInTerminal(Command.listPipelinesInTerminal('Pipelines'));
+      return;
     }
-    if (!pipeline) return null;
     Pipeline.tkn.executeInTerminal(Command.listPipelinesInTerminal(pipeline.getName()));
   }
 
@@ -84,7 +84,6 @@ export class Pipeline extends TektonItem {
   }
 
   static async startWizard(pipeline: TektonNode, commandId?: string): Promise<void | string> {
-    if (!pipeline) return null;
     const result: cliInstance.CliExitData = await Pipeline.tkn.execute(Command.getPipeline(pipeline.getName()), process.cwd(), false);
     let data: TknPipelineTrigger;
     if (result.error) {

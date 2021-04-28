@@ -10,11 +10,11 @@ import * as sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import { TknImpl } from '../../src/tkn';
 import { Task } from '../../src/tekton/task';
-import { TektonItem } from '../../src/tekton/tektonitem';
 import { TestItem } from './testTektonitem';
 import * as vscode from 'vscode';
 import { ContextType } from '../../src/context-type';
 import { Command } from '../../src/cli-command';
+import { TektonItem } from '../../src/tekton/tektonitem';
 
 const expect = chai.expect;
 chai.use(sinonChai);

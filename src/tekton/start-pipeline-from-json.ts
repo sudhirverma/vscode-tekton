@@ -14,7 +14,7 @@ import { Params, Resources, StartObject, VCT, Workspaces } from './pipelineconte
 
 export async function startPipelineFromJson(formValue: StartObject): Promise<void> {
   const pipelineRunJson = await getPipelineRun(formValue, formValue.commandId);
-  await k8sCreate(pipelineRunJson, formValue.commandId, PipelineRunModel.kind);
+  if (pipelineRunJson) await k8sCreate(pipelineRunJson, formValue.commandId, PipelineRunModel.kind);
 }
 
 export async function getPipelineRun(formValue: StartObject, commandId?: string): Promise<PipelineRunKind> {
@@ -34,7 +34,7 @@ export async function getPipelineRun(formValue: StartObject, commandId?: string)
   const result = await cli.execute(Command.getPipeline(formValue.name));
   let pipeline: TknPipelineTrigger;
   if (result.error) {
-    telemetryLogError(commandId, result.error.toString())
+    if (commandId) telemetryLogError(commandId, result.error.toString())
     window.showErrorMessage(`fail to fetch pipeline: ${result.error}`);
     return;
   }
