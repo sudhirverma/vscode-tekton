@@ -10,6 +10,15 @@ export enum VolumeTypes {
   Secret = 'Secret',
   PersistentVolumeClaim = 'PVC',
 }
+export enum WorkspaceOption {
+  emptyDirectory = 'EmptyDirectory',
+  configMap = 'ConfigMap',
+  secret = 'Secret',
+  persistentVolumeClaim = 'PersistentVolumeClaim',
+}
+
+export const volumeClaimTemplate = 'Create a new VolumeClaimTemplate';
+export const volumeClaimTemplateID = 'create-new-VolumeClaimTemplate-entry';
 
 export const initialResourceFormValues = {
   name: undefined,

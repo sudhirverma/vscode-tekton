@@ -65,8 +65,16 @@ function restore(state: Trigger): void {
 function displayWorkspaceContent(event: NodeListOf<Element>, trigger: Trigger): void {
   const initialValue: PipelineStart = initialResourceFormValues;
   if (event) {
+    const pipelineRunWorkspaceVCT = {};
+    if (trigger?.pipelineRun?.workspaces.length !== 0) {
+      trigger.pipelineRun.workspaces.forEach(val => {
+        if(val?.volumeClaimTemplate) {
+          pipelineRunWorkspaceVCT[val.name] = val.volumeClaimTemplate;
+        }
+      })
+    }
     event.forEach((val, index) => {
-      triggerSelectedWorkspaceType(val.getElementsByTagName('select')[0], val.parentNode, trigger, initialValue, index);
+      triggerSelectedWorkspaceType(val.getElementsByTagName('select')[0], val.parentNode, trigger, initialValue, index, pipelineRunWorkspaceVCT);
       try {
         const selectedWorkspaceValue = val.getElementsByTagName('select')[0].value;
         const selectedWorkspaceItem = document.querySelectorAll(`[id^=${selectedWorkspaceValue}-Workspaces]`)[0];
