@@ -4,8 +4,8 @@
  *-----------------------------------------------------------------------------------------------*/
 import * as vscode from 'vscode';
 import * as sinon from 'sinon';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import { CustomTektonExplorer } from '../../src/pipeline/customTektonExplorer';
 import { pipelineExplorer } from '../../src/pipeline/pipelineExplorer';
 import { TestItem } from '../tekton/testTektonitem';

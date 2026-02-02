@@ -5,6 +5,7 @@
 
 import * as path from 'path';
 import { TreeItemCollapsibleState, Uri } from 'vscode';
+import type { IconPath } from 'vscode';
 import { ContextType } from '../context-type';
 import { ConditionCheckStatus, PipelineTaskRunData, TaskRunStatus } from '../tekton';
 import { TektonNode, TektonNodeImpl } from './tekton-node';
@@ -84,7 +85,7 @@ export abstract class BaseTaskRun extends TektonNodeImpl {
     return r;
   }
 
-  get iconPath(): Uri {
+  get iconPath(): IconPath {
     if (this.state) {
       let filePath = IMAGES;
       if (this.state) {

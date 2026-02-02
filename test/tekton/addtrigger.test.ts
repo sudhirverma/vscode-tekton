@@ -7,11 +7,11 @@
 'use strict';
 
 import * as os from 'os';
-import * as chai from 'chai';
+import chai from 'chai';
 import * as fs from 'fs-extra';
 import * as sinon from 'sinon';
 import * as yaml from 'js-yaml';
-import * as sinonChai from 'sinon-chai';
+import sinonChai from 'sinon-chai';
 import * as _ from 'lodash';
 import { TknImpl } from '../../src/tkn';
 import { getPipelineRunFrom, createTriggerTemplate, createEventListener, getPipelineRunWorkspaces, addTriggerToPipeline, addTrigger } from '../../src/tekton/addtrigger';

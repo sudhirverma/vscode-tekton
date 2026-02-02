@@ -5,8 +5,8 @@
 
 'use strict';
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import { TknImpl } from '../../src/tkn';
 import { TektonItem } from '../../src/tekton/tektonitem';

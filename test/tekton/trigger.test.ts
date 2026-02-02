@@ -7,10 +7,10 @@
 'use strict';
 
 import * as os from 'os';
-import * as chai from 'chai';
+import chai from 'chai';
 import * as fs from 'fs-extra';
 import * as sinon from 'sinon';
-import * as sinonChai from 'sinon-chai';
+import sinonChai from 'sinon-chai';
 import { TestItem } from './testTektonitem';
 import { TknImpl } from '../../src/tkn';
 import { addTrigger } from '../../src/tekton/trigger';

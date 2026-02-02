@@ -4,8 +4,8 @@
  *-----------------------------------------------------------------------------------------------*/
 
 import * as vscode from 'vscode';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import * as fs from 'fs-extra';
 import * as path from 'path';

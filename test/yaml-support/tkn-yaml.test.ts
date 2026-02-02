@@ -3,8 +3,8 @@
  *  Licensed under the MIT License. See LICENSE file in the project root for license information.
  *-----------------------------------------------------------------------------------------------*/
 import * as vscode from 'vscode';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { TektonYamlType, tektonYaml, pipelineYaml, pipelineRunYaml, DeclaredTask } from '../../src/yaml-support/tkn-yaml';

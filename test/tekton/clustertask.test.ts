@@ -7,8 +7,8 @@
 
 import * as os from 'os';
 import * as fs from 'fs-extra';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import { TknImpl } from '../../src/tkn';
 import { ClusterTask } from '../../src/tekton/clustertask';

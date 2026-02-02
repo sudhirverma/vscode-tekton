@@ -5,8 +5,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use strict';
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import pq = require('proxyquire');
 import { EventEmitter } from 'events';

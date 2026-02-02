@@ -6,8 +6,8 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import { TknImpl } from '../../src/tkn';
 import { showDiagnosticData } from '../../src/tekton/diagnostic';

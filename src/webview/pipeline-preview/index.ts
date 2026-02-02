@@ -3,13 +3,21 @@
  *  Licensed under the MIT License. See LICENSE file in the project root for license information.
  *-----------------------------------------------------------------------------------------------*/
 
-import * as cytoscape from 'cytoscape';
+import cytoscape, {
+  Core,
+  CollectionReturnValue,
+  EdgeCollection,
+  CytoscapeOptions
+} from 'cytoscape';
 import { NodeOrEdge, CyTheme, NodeData, StepData } from './model';
-import * as dagre from 'cytoscape-dagre';
+// import * as dagre from 'cytoscape-dagre';
 import { debounce } from 'debounce';
-import * as popper from 'cytoscape-popper';
+// import * as popper from 'cytoscape-popper';
 import { TaskPopup } from './task-popup';
-import * as cxtmenu from 'cytoscape-cxtmenu';
+// import * as cxtmenu from 'cytoscape-cxtmenu';
+import dagre from 'cytoscape-dagre';
+import popper from 'cytoscape-popper';
+import cxtmenu from 'cytoscape-cxtmenu';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare let acquireVsCodeApi: any;
@@ -18,7 +26,7 @@ cytoscape.use(dagre); // register extension
 cytoscape.use(popper);
 cytoscape.use(cxtmenu);
 
-let cy: cytoscape.Core;
+let cy!: Core;
 const saveState = debounce(() => {
   vscode.setState(cy.json());
 }, 1500)
@@ -29,8 +37,8 @@ if (previousState) {
   restore(previousState);
 }
 
-let highlightedSourceEdges: cytoscape.EdgeCollection;
-let highlightedTargetEdges: cytoscape.EdgeCollection;
+let highlightedSourceEdges!: EdgeCollection;
+let highlightedTargetEdges!: EdgeCollection;
 let taskInfoPopup: TaskPopup;
 let hoveredId: string;
 
@@ -69,7 +77,7 @@ function showData(data: NodeOrEdge[]): void {
   render(data);
 }
 
-let previousHighlightNode: cytoscape.CollectionReturnValue;
+let previousHighlightNode!: CollectionReturnValue;
 function removeHighlight(): void {
   if (previousHighlightNode) {
     previousHighlightNode.data('editing', 'false');
@@ -200,9 +208,16 @@ function startUpdatingState(): void {
   (cy as any).cxtmenu( defaults );
 }
 
-function restore(state: object): void {
-  cy = cytoscape({ container: document.getElementById('cy') });
-  cy.json(state);
+function restore(state: CytoscapeOptions): void {
+  cy = cytoscape({
+    container: document.getElementById('cy')!,
+    elements: []
+  });
+
+  if (state.elements) {
+    cy.json(state as any);
+  }
+
   startUpdatingState();
 }
 
@@ -258,7 +273,7 @@ function getTheme(): CyTheme {
   return result;
 }
 
-function getStyle(style: CyTheme): cytoscape.Stylesheet[] {
+function getStyle(style: CyTheme): any[] {
   return [ // the stylesheet for the graph
     {
       selector: 'edge',

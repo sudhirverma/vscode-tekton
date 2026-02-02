@@ -5,8 +5,8 @@
 
 'use strict';
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import { Progress } from '../../src/util/progress';
 import * as vscode from 'vscode';

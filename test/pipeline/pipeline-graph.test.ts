@@ -4,8 +4,8 @@
  *-----------------------------------------------------------------------------------------------*/
 import * as vscode from 'vscode';
 import * as sinon from 'sinon';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import { tektonYaml, pipelineYaml, DeclaredTask, pipelineRunYaml } from '../../src/yaml-support/tkn-yaml';
 import * as graph from '../../src/pipeline/pipeline-graph';
 import { VirtualDocument } from '../../src/yaml-support/yaml-locator';

@@ -3,8 +3,8 @@
  *  Licensed under the MIT License. See LICENSE file in the project root for license information.
  *-----------------------------------------------------------------------------------------------*/
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import { PipelineExplorer } from '../src/pipeline/pipelineExplorer';
 import { TknImpl } from '../src/tkn';
 import { TestItem } from './tekton/testTektonitem';

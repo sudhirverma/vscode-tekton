@@ -14,8 +14,8 @@
     "svg.preview.background": "white",
     // Run ESlint after every save action
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-      },
+        "source.fixAll.eslint": "explicit"
+    },
     "eslint.validate": [
         "typescript"
     ],

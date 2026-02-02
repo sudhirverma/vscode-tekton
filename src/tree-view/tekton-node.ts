@@ -4,6 +4,7 @@
  *-----------------------------------------------------------------------------------------------*/
 
 import { ProviderResult, QuickPickItem, TreeItemCollapsibleState, Uri } from 'vscode';
+import type { IconPath } from 'vscode';
 import { ContextType } from '../context-type';
 import { Tkn } from '../tkn';
 import format = require('string-format');
@@ -21,6 +22,7 @@ export interface TektonNode extends QuickPickItem {
   visibleChildren?: number;
   collapsibleState?: TreeItemCollapsibleState;
   uid?: string;
+  iconPath?: IconPath;
 }
 
 export class TektonNodeImpl implements TektonNode {
@@ -163,7 +165,7 @@ export class TektonNodeImpl implements TektonNode {
 
   }
 
-  get iconPath(): Uri {
+  get iconPath(): IconPath {
     if (this.state) {
       let filePath = IMAGES;
       switch (this.state) {

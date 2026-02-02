@@ -6,10 +6,10 @@
 
 'use strict';
 
-import * as chai from 'chai';
+import chai from 'chai';
 import * as vscode from 'vscode';
 import * as sinon from 'sinon';
-import * as sinonChai from 'sinon-chai';
+import sinonChai from 'sinon-chai';
 import { EventListenerKind } from '../../src/tekton';
 import { TriggerTemplate } from '../../src/tekton/triggertemplate';
 import { TknImpl } from '../../src/tkn';

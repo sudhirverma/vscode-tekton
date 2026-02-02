@@ -4,8 +4,8 @@
  *-----------------------------------------------------------------------------------------------*/
 
 import * as sinon from 'sinon';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import { referenceOfTaskAndClusterTaskInCluster } from '../../src/util/check-ref-resource';
 import { Command } from '../../src/cli-command';
 import { TestItem } from '../tekton/testTektonitem';

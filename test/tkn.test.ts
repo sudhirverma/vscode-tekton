@@ -6,8 +6,8 @@
 import * as tkn from '../src/tkn';
 import { CliImpl, createCliCommand } from '../src/cli';
 import * as sinon from 'sinon';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as assert from 'assert';
 import { ToolsConfig } from '../src/tools';
 import { WindowUtil } from '../src/util/windowUtils';
@@ -109,7 +109,8 @@ suite('tkn', () => {
         show: sinon.stub(),
         hide: sinon.stub(),
         dispose: sinon.stub(),
-        state: undefined
+        state: undefined,
+        shellIntegration: undefined   // ✅ ADD THIS
       };
       toolsStub.restore();
       toolsStub = sandbox.stub(ToolsConfig, 'detectOrDownload').resolves({

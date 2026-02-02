@@ -5,8 +5,8 @@
 
 'use strict';
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import sinon = require('sinon');
 import { TektonItem } from '../../src/tekton/tektonitem';
 import { TknImpl } from '../../src/tkn';
@@ -37,6 +37,7 @@ suite('TektonItem', () => {
     languageId: '',
     version: 1,
     eol: EndOfLine.CRLF,
+    encoding: 'utf8', 
     save: undefined,
     lineCount: 33,
     lineAt: undefined,

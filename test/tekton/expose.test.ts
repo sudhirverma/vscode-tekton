@@ -6,9 +6,9 @@
 
 'use strict';
 
-import * as chai from 'chai';
+import chai from 'chai';
 import * as sinon from 'sinon';
-import * as sinonChai from 'sinon-chai';
+import sinonChai from 'sinon-chai';
 import { EventListenerKind } from '../../src/tekton';
 import { createEventListenerRoute } from '../../src/tekton/expose';
 

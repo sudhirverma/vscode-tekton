@@ -14,7 +14,7 @@ import byline = require('byline');
 export class WatchUtil {
   static watchFileForContextChange(location: string, filename: string): FileContentChangeNotifier {
     const emitter: EventEmitter = new EventEmitter();
-    let timer: NodeJS.Timer;
+    let timer: NodeJS.Timeout | undefined;
     let context = '';
     fsex.ensureDirSync(location);
     const watcher: fs.FSWatcher = fsex.watch(location, (eventType, changedFile) => {

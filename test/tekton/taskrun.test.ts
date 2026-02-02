@@ -8,8 +8,8 @@
 import * as os from 'os';
 import * as fs from 'fs-extra';
 import * as vscode from 'vscode';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import { TestItem } from './testTektonitem';
 import { TaskRun } from '../../src/tekton/taskrun';

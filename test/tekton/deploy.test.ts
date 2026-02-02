@@ -6,11 +6,11 @@
 'use strict';
 
 import * as os from 'os';
-import * as chai from 'chai';
+import chai from 'chai';
 import * as sinon from 'sinon';
 import * as fs from 'fs-extra';
 import * as vscode from 'vscode';
-import * as sinonChai from 'sinon-chai';
+import sinonChai from 'sinon-chai';
 import { updateTektonResource } from '../../src/tekton/deploy';
 import { contextGlobalState } from '../../src/extension';
 import { tektonYaml } from '../../src/yaml-support/tkn-yaml';
@@ -67,6 +67,7 @@ suite('Deploy File', () => {
     isDirty: false,
     isUntitled: false,
     languageId: 'yaml',
+    encoding: 'utf8', 
     version: 1,
     eol: vscode.EndOfLine.CRLF,
     save: undefined,

@@ -19,12 +19,12 @@ const taskSvg = require('../hub/task.svg');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pipelineSvg = require('../hub/pipeline.svg');
 
-import * as MarkdownIt from 'markdown-it';
+import MarkdownIt from 'markdown-it';
 import './yaml-highlight.css';
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-hljs.registerLanguage('yaml', yaml as any);
+hljs.registerLanguage('yaml', yaml);
 
 
 
@@ -299,7 +299,12 @@ export class TaskWidget extends BaseWidget {
 
   private addVersionCheck(container: HTMLUListElement): void {
     if (this.currentVersion.minPipelinesVersion) {
-      if (semver.lt(this.tknVersion, this.currentVersion.minPipelinesVersion)){
+      if (
+        this.tknVersion &&
+  this.currentVersion.minPipelinesVersion &&
+  semver.lt(this.tknVersion, this.currentVersion.minPipelinesVersion)
+      ) {
+
         const versionWarning = document.createElement('li');
         versionWarning.classList.add('action-item');
         

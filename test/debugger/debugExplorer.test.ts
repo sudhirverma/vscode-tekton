@@ -3,8 +3,8 @@
  *  Licensed under the MIT License. See LICENSE file in the project root for license information.
  *-----------------------------------------------------------------------------------------------*/
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import sinon = require('sinon');
 import { DebugExplorer } from '../../src/debugger/debugExplorer';
 import { debugSessions } from '../../src/util/map-object';

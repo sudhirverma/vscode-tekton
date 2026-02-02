@@ -5,8 +5,8 @@
 
 'use strict';
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import { hideClusterInfo, hideIPAddress, hidePath } from '../../src/util/hideclusterinformation';
 
 const expect = chai.expect;

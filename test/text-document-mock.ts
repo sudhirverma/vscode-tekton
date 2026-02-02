@@ -9,6 +9,7 @@ import * as vscode from 'vscode';
 export class TestTextDocument implements vscode.TextDocument {
 
   fileName: string;
+  encoding = 'utf8';
   isUntitled: boolean;
   languageId: string;
   version = 1;

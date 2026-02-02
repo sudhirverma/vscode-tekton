@@ -4,6 +4,7 @@
  *-----------------------------------------------------------------------------------------------*/
 
 import { ProviderResult, TreeItem, TreeItemCollapsibleState } from 'vscode';
+import type { IconPath } from 'vscode';
 import { TektonNode } from './tekton-node';
 
 export class MoreNode extends TreeItem implements TektonNode {
@@ -12,6 +13,7 @@ export class MoreNode extends TreeItem implements TektonNode {
   state?: string;
   detail?: string;
   picked?: boolean;
+  iconPath?: IconPath;
   alwaysShow?: boolean;
   label: string;
   tooltip: string;

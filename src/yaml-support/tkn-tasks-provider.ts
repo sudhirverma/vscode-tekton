@@ -5,7 +5,7 @@
 import { tkn } from '../tkn';
 import { TknTask } from '../tekton';
 import { Snippet } from './snippet';
-import * as NodeCache from 'node-cache';
+import NodeCache from 'node-cache';
 
 const cache = new NodeCache({stdTTL: 120, checkperiod: 120});
 const tasksKey = 'tasks';

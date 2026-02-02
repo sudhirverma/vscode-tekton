@@ -34,7 +34,7 @@ function dropdownForWorkspaceType(event: Node & ParentNode, editId: string, sect
     selectText(event.querySelectorAll(`[id^=${sectionId}]`), `Create a new ${VolumeTypes[select.value]}`, false, 'create-new-PersistentVolumeClaim-entry');
     selectText(event.querySelectorAll(`[id^=${sectionId}]`), volumeClaimTemplate, false, volumeClaimTemplateID);
   } else {
-    selectText(event.querySelectorAll(`[id^=${sectionId}]`), `Select a ${VolumeTypes[select.value]}`, (index === undefined) ?? true, 'select-workspace-option');
+    selectText(event.querySelectorAll(`[id^=${sectionId}]`), `Select a ${VolumeTypes[select.value]}`, (index === undefined), 'select-workspace-option');
   }
   const pipelineRunVCT = pipelineRunWorkspaceVCT?.[event?.firstElementChild.id];
   if (pipelineRunVCT) {

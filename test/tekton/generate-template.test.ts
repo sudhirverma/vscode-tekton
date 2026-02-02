@@ -5,8 +5,8 @@
 
 'use strict';
 
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import * as taskRunTemplate from '../../src/tekton/generate-template'
 import { TestItem } from './testTektonitem';
@@ -36,6 +36,7 @@ suite('Tekton/TaskRunTemplate', () => {
     languageId: '',
     version: 1,
     eol: EndOfLine.CRLF,
+    encoding: 'utf8', 
     save: undefined,
     lineCount: 33,
     lineAt: undefined,

@@ -5,8 +5,8 @@
 
 
 import * as vscode from 'vscode';
-import * as chai from 'chai';
-import * as sinonChai from 'sinon-chai';
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
 import * as sinon from 'sinon';
 import * as path from 'path';
 import { generateScheme } from '../../src/yaml-support/tkn-yaml-scheme-generator';

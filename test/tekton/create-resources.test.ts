@@ -6,11 +6,11 @@
 'use strict';
 
 import * as os from 'os';
-import * as chai from 'chai';
+import chai from 'chai';
 import * as fs from 'fs-extra';
 import * as sinon from 'sinon';
 import * as yaml from 'js-yaml';
-import * as sinonChai from 'sinon-chai';
+import sinonChai from 'sinon-chai';
 import { createNewResource } from '../../src/tekton/create-resources';
 import { TknImpl } from '../../src/tkn';
 
